@@ -1,0 +1,1 @@
+// export const apalaLogo = require('./imgs/apala-logo.png')
