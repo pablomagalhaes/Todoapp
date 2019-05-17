@@ -5,21 +5,27 @@
 [Auth TODO App - APK DOWNLOAD](https://drive.google.com/file/d/iew?usp=sharing)
 
 ## Main features:
-- List Movies
-- Pagination on Movie List
-- Push to refresh movie list 
-- Search Movies
-- Movie Details
+- Login screen that authenticate with Facebook and Email method by Firebase
+- Sign Up screen that create account with Facebook and Email method  by Firebase
+- Use Firebase Realtime database and Firebase Authentication
+- A todo **crud** that should **synchronize** with [firebase realtime database]
+
 
 ## The Project 
 
-- Using [React ](https://kotlinlang.org/)
-- Using [Redux](https://www.toptal.com/android/android-apps-mvvm-with-clean-architecture) Architecture to separate my view of the business logic 
+- Use [ES6](http://es6-features.org/#Constants)
+- Use [React ](https://reactjs.org/)
+- Use [React Native ](https://facebook.github.io/react-native/)
+- Use [Redux](https://redux.js.org/)
 
 
 #### Third-party Libraries
-- [Android Support Library](https://developer.android.com/topic/libraries/support-library/index.html): Library for basic project structure and compatibility, used in almost any Android Project.
-
+- [redux-thunk](https://github.com/reduxjs/redux-thunk) : A middleware for Redux
+- [react-native-localization](https://developer.android.com/topic/libraries/support-library/index.html): Library to internalization strings.
+- [react-navigation](https://reactnavigation.org/) : To routing and navigation 
+- [react native elements](https://react-native-training.github.io/react-native-elements/) : To use native UI components
+- [axios](https://github.com/axios/axios) : To make XMLHttpRequests, Intercept request and response, Automatic transforms for JSON data, Supports the Promise API
+- [momentjs](https://momentjs.com/) : To parse, validate, manipulate, and display dates and times in JavaScript.
 
 ### Tools and Build
 
@@ -42,7 +48,7 @@ If you wish run tests should choose **mockdebug** build variant .
 
 
  Listing Todo's             |  Adding Todo             | Removing Todo        | Editing Todo   | Completing Todo                
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
 <img src="gifs/listing_movies.gif" width="180" height="320">  |    <img src="gifs/show_movie_details.gif" width="180" height="320">  |    <img src="gifs/search_movies.gif" width="180" height="320"> |    <img src="gifs/updating_movies.gif" width="180" height="320"> |    <img src="gifs/updating_movies.gif" width="180" height="320">
 
 
