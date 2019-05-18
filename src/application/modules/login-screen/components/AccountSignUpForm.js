@@ -59,31 +59,6 @@ class AccountSignUpForm extends PureComponent{
           value={this.state.password}
         />
 
-        <View style={{ flexDirection: 'row'}}>
-
-          <TextInput
-            style={{ color: 'white', marginBottom: 20, flex: 1 }}
-            autoCapitalize="none"
-            autoCorrect={false}
-            onChangeText={(phone) => this.setState({ phone })}
-            placeholder="Telefone"
-            placeholderTextColor={'white'}
-            underlineColorAndroid={'white'}
-            value={this.state.phone}
-          />
-
-          <Picker
-            selectedValue={this.state.bloodType}
-            mode="dropdown"
-            style={{ backgroundColor: 'white', color: 'black', marginBottom: 20, flex: 1, justifyContent: 'center' }}
-            onValueChange={(bloodType) => this.setState({ bloodType })}>
-            <Picker.Item label="O+" value="java" />
-            <Picker.Item label="O-" value="js" />
-            <Picker.Item label="A+" value="j32s" />
-          </Picker>
-          
-        </View>
-
         <Button
           onPress={() => this._onPressSignUp()}
           text={'Cadastrar'}
@@ -98,7 +73,7 @@ class AccountSignUpForm extends PureComponent{
 
 const styles = {
   mainContainer: {
-    backgroundColor: Colors.light_red,
+    backgroundColor: Colors.white,
     flex: 1 ,
     flexDirection: 'column',
     paddingTop: 10,

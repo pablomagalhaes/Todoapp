@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import * as LoginActions from './LoginActions'
 import Colors from '../../assets/Colors'
 import Button from '../../components/Button'
-import { apalaLogo } from '../../assets/Images'
+import { mainLogo } from '../../assets/Images'
 import SVGImage from 'react-native-svg-image';
 import { FormSubmitType } from './LoginEnums';
 import MainLoginForm from './components/MainLoginForm'
@@ -75,22 +75,35 @@ class LoginScreen extends PureComponent {
     const { currentSubmitType } = this.state
 
     return (
-      <View style={{flex: 1}}>
-
-        <View style={{ flex: 1, backgroundColor: 'white' }}>
-          <View style={{ paddingLeft: 30, paddingRight: 30, paddingTop: 20}}>
+      <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor: Colors.main_blue }}>
+          <View
+            style={{ paddingLeft: 30, paddingRight: 30, paddingTop: 20 }}
+          >
             {this.showBackIcon(currentSubmitType)}
             {this.showCloseIconButton(currentSubmitType)}
-          </View> 
+          </View>
+
+          <Image
+            style={{
+              width: 200,
+              height: 200,
+              alignSelf: "center",
+              resizeMode: "stretch"
+            }}
+            source={mainLogo}
+          />
         </View>
-        
-        <MainLoginForm 
+
+        <MainLoginForm
           submitType={currentSubmitType}
-          onChangeSubmitType={(newSubmitType) => this.updateSubmitType(newSubmitType)}
+          onChangeSubmitType={newSubmitType =>
+            this.updateSubmitType(newSubmitType)
+          }
           onFormSuccess={() => this.goToHome()}
         />
       </View>
-    )
+    );
   }
 }
 

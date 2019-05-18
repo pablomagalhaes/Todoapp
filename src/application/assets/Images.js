@@ -1,1 +1,1 @@
-// export const apalaLogo = require('./imgs/apala-logo.png')
+export const mainLogo = require('./imgs/main-logo.jpg')

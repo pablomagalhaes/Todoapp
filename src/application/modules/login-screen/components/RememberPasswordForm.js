@@ -55,14 +55,14 @@ class RememberPasswordForm extends PureComponent {
 
 const styles = {
   mainContainer: {
-    backgroundColor: Colors.light_red,
+    backgroundColor: Colors.white,
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: "column",
     paddingTop: 10,
     paddingRight: 60,
     paddingLeft: 60
   }
-}
+};
 
 
 export default RememberPasswordForm

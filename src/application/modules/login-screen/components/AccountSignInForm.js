@@ -69,14 +69,14 @@ class AccountSignInForm extends PureComponent {
 
 const styles = {
   mainContainer: {
-    backgroundColor: Colors.light_red,
-    flex: 1 ,
-    flexDirection: 'column',
+    backgroundColor: Colors.white,
+    flex: 1,
+    flexDirection: "column",
     paddingTop: 10,
     paddingRight: 60,
     paddingLeft: 60
   }
-}
+};
 
 
 export default AccountSignInForm
