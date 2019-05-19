@@ -3,8 +3,6 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import Button from '../../../components/Button'
 import Colors from '../../../assets/Colors'
 
-
- 
 class AccountSignInForm extends PureComponent {
   constructor(props) {
     super(props);
@@ -26,40 +24,42 @@ class AccountSignInForm extends PureComponent {
     return (
       <View style={styles.mainContainer}>
         <TextInput
-          style={{ color: "white", marginBottom: 15 }}
+          style={{ color: Colors.main_blue, marginBottom: 15 }}
           autoCapitalize="none"
           autoCorrect={false}
           keyboardType="email-address"
           onChangeText={email => this.setState({ email })}
           placeholder="Email"
-          placeholderTextColor={"white"}
-          underlineColorAndroid={"white"}
+          placeholderTextColor={Colors.main_blue}
+          underlineColorAndroid={Colors.main_blue}
           value={this.state.email}
         />
 
         <TextInput
-          style={{ color: "white", marginBottom: 20 }}
+          style={{ color: Colors.main_blue, marginBottom: 20 }}
           autoCapitalize="none"
           autoCorrect={false}
           onChangeText={password => this.setState({ password })}
           placeholder="Senha"
           secureTextEntry
-          placeholderTextColor={"white"}
-          underlineColorAndroid={"white"}
+          placeholderTextColor={Colors.main_blue}
+          underlineColorAndroid={Colors.main_blue}
           value={this.state.password}
         />
 
         <Button
           onPress={() => this._submitAccountSignInForm()}
           text={"Entrar"}
-          textColor={Colors.light_red}
+          textColor={Colors.main_blue}
         />
 
         <TouchableOpacity
           style={{ marginTop: 15, alignSelf: "center" }}
           onPress={onPressForgotPassword}
         >
-          <Text style={{ color: "white" }}>Esqueceu a senha ?</Text>
+          <Text style={{ color: Colors.main_blue }}>
+            Esqueceu a senha ?
+          </Text>
         </TouchableOpacity>
       </View>
     );

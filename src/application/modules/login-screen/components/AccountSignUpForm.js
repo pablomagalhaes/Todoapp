@@ -24,45 +24,45 @@ class AccountSignUpForm extends PureComponent{
         style={styles.mainContainer}>
 
         <TextInput
-          style={{ color: 'white', marginBottom: 15 }}
+          style={{ color: Colors.main_blue, marginBottom: 15 }}
           autoCapitalize="none"
           autoCorrect={false}
           keyboardType="email-address"
           onChangeText={(name) => this.setState({ name })}
           placeholder="Nome"
-          placeholderTextColor={'white'}
-          underlineColorAndroid={'white'}
+          placeholderTextColor={Colors.main_blue}
+          underlineColorAndroid={Colors.main_blue}
           value={this.state.name}
         />
 
         <TextInput
-          style={{ color: 'white', marginBottom: 15 }}
+          style={{ color: Colors.main_blue, marginBottom: 15 }}
           autoCapitalize="none"
           autoCorrect={false}
           keyboardType="email-address"
           onChangeText={(email) => this.setState({ email })}
           placeholder="Email"
-          placeholderTextColor={'white'}
-          underlineColorAndroid={'white'}
+          placeholderTextColor={Colors.main_blue}
+          underlineColorAndroid={Colors.main_blue}
           value={this.state.email}
         />
 
         <TextInput
-          style={{ color: 'white', marginBottom: 20 }}
+          style={{ color: Colors.main_blue, marginBottom: 20 }}
           autoCapitalize="none"
           autoCorrect={false}
           onChangeText={(password) => this.setState({ password })}
           placeholder="Senha"
           secureTextEntry
-          placeholderTextColor={'white'}
-          underlineColorAndroid={'white'}
+          placeholderTextColor={Colors.main_blue}
+          underlineColorAndroid={Colors.main_blue}
           value={this.state.password}
         />
 
         <Button
           onPress={() => this._onPressSignUp()}
           text={'Cadastrar'}
-          textColor={Colors.light_red}
+          textColor={Colors.main_blue}
           style={{ marginBottom: 40}}
         />
 

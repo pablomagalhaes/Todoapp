@@ -3,10 +3,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import HomeScreen from "../../home-screen/HomeScreen";
 import LoginScreen from '../../login-screen/LoginScreen'
+import SplashScreen from "../../splash-screen/SplashScreen";
 import { createAppContainer, createStackNavigator } from "react-navigation";
-import { Text, Image, TouchableOpacity } from 'react-native'
+import { Image } from 'react-native'
 
-export const CONTRIBUITION_SCREEN = 'ContribuitionScreen'
 
 const topToolbarConfiguration = ({ state, navigation }) => {
   return ({
@@ -20,6 +20,12 @@ const topToolbarConfiguration = ({ state, navigation }) => {
 }
 
 const routes = {
+  SplashScreen: {
+    screen: SplashScreen,
+    navigationOptions: {
+      header: () => null
+    }
+  },
   LoginScreen: {
     screen: LoginScreen,
     navigationOptions: {

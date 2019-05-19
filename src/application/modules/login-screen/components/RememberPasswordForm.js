@@ -25,26 +25,26 @@ class RememberPasswordForm extends PureComponent {
     return (
       <View style={styles.mainContainer}>
 
-        <Text style={{ color: "white", fontWeight: 'bold', margin: 10, alignSelf: 'center' }}>Redefinir sua senha</Text>
+        <Text style={{ color: Colors.main_blue, fontWeight: 'bold', margin: 10, alignSelf: 'center' }}>Redefinir sua senha</Text>
 
-        <Text style={{ color: "white", marginTop: 10, marginBottom: 10, alignSelf: 'center' }}>Digite seu email para enviarmos um link de redefinição de senha.</Text>
+        <Text style={{ color: Colors.main_blue, marginTop: 10, marginBottom: 10, alignSelf: 'center' }}>Digite seu email para enviarmos um link de redefinição de senha.</Text>
 
         <TextInput
-          style={{ color: "white", marginBottom: 15 }}
+          style={{ color: Colors.main_blue, marginBottom: 15 }}
           autoCapitalize="none"
           autoCorrect={false}
           keyboardType="email-address"
           onChangeText={email => this.setState({ email })}
           placeholder="Email"
-          placeholderTextColor={"white"}
-          underlineColorAndroid={"white"}
+          placeholderTextColor={Colors.main_blue}
+          underlineColorAndroid={Colors.main_blue}
           value={this.state.email}
         />
 
         <Button
           onPress={() => this._submitRememberPasswordForm()}
           text={"Enviar"}
-          textColor={Colors.light_red}
+          textColor={Colors.main_blue}
         />
 
       </View>

@@ -23,26 +23,6 @@ class LoginScreen extends PureComponent {
     }
   }
 
-  onPressBackIcon(currentSubmitType){
-    const goToHome = () => this.props.navigation.navigate('MainTabsNavigation')
-    const goToSelection = () => Alert.alert('goToSelection')
-
-    const { SELECTION, FACEBOOK, SIGNIN, SIGNUP } = FormSubmitType
-
-    const action = {
-      SELECTION: goToHome,
-      FACEBOOK: goToSelection,
-      SIGNIN: goToSelection,
-      SIGNUP: goToSelection,
-    }
-
-    return action[currentSubmitType]();
-  }
-
-  goToHome() {
-    this.props.navigation.navigate('MainTabsNavigation')
-  }
-
   goToAccessSelection() {
     this.updateSubmitType(FormSubmitType.SELECTION)
   }
@@ -51,23 +31,13 @@ class LoginScreen extends PureComponent {
     this.setState({ currentSubmitType: newSubmitType })
   }
 
-  showCloseIconButton(currentSubmitType) {
-    if (currentSubmitType === FormSubmitType.SELECTION) {
-      return (
-        <TouchableOpacity onPress={() => this.goToHome()} style={{ alignSelf: 'flex-end' }}>
-          <EvilIcons name="close" size={30} color={Colors.light_grey} />
-        </TouchableOpacity>
-      )
-    }
-  }
-
   showBackIcon(currentSubmitType) {
     if (currentSubmitType != FormSubmitType.SELECTION) {
       return (
-        <TouchableOpacity onPress={() => this.goToAccessSelection() }>
-          <Ionicons name="md-arrow-back" size={30} color={Colors.light_grey} />
+        <TouchableOpacity onPress={() => this.goToAccessSelection()}>
+          <Ionicons name="md-arrow-back" size={30} color={Colors.white} />
         </TouchableOpacity>
-      )
+      );
     }
   }
 
@@ -81,7 +51,6 @@ class LoginScreen extends PureComponent {
             style={{ paddingLeft: 30, paddingRight: 30, paddingTop: 20 }}
           >
             {this.showBackIcon(currentSubmitType)}
-            {this.showCloseIconButton(currentSubmitType)}
           </View>
 
           <Image

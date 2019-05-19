@@ -22,7 +22,7 @@ class SelectAccessForm extends PureComponent {
             style={{ flex: 1 }}
             text={"Entrar com o Email"}
             onPress={() => onPressAccessMethod(FormSubmitType.SIGNIN)}
-            textColor={Colors.light_red}
+            textColor={Colors.main_blue}
           />
         </View>
 
@@ -39,7 +39,7 @@ class SelectAccessForm extends PureComponent {
             style={{
               flex: 1,
               height: 2,
-              backgroundColor: Colors.main_blue
+              backgroundColor: Colors.simple_gray
             }}
           />
           <Text
@@ -55,7 +55,7 @@ class SelectAccessForm extends PureComponent {
             style={{
               flex: 1,
               height: 2,
-              backgroundColor: Colors.main_blue
+              backgroundColor: Colors.simple_gray
             }}
           />
         </View>
@@ -80,8 +80,7 @@ class SelectAccessForm extends PureComponent {
           <Text
             style={{
               color: Colors.main_blue,
-              marginRight: 10,
-              fontWeight: "bold"
+              marginRight: 10
             }}
           >
             Não tem conta ?
@@ -91,7 +90,7 @@ class SelectAccessForm extends PureComponent {
             style={{ padding: 7 }}
             textStyle={{ fontSize: 13 }}
             onPress={() => onPressAccessMethod(FormSubmitType.SIGNUP)}
-            textColor={Colors.light_red}
+            textColor={Colors.main_blue}
           />
         </View>
       </View>
