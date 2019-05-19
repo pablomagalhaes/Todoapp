@@ -1,36 +1,36 @@
 import {
-  UPDATE_SIGN_IN_ERROR,
-  UPDATE_SIGN_UP_ERROR,
-  UPDATE_SIGN_IN_LOADING,
-  UPDATE_SIGN_UP_LOADING,
   LOGOUT,
-  LOGIN
-} from './LoginTypes'
+  UPDATE_USER_SESSION,
+  UPDATE_API_REQUEST_ERROR,
+  UPDATE_API_REQUEST_LOADING
+} from "./LoginTypes";
 
 export const initial = {
-  signInError: '',
-  signUpError: '',
-  logged: false,
-  signInLoading: false,
-  signUpLoading: false,
-  user: null
+  apiRequestError: null,
+  isLoading: false,
+  currentUserSession: null
 }
 
 export default (state = initial, action) => {
   switch (action.type) {
-    case UPDATE_SIGN_IN_ERROR:
-      return { ...state, signInError: action.payload }
-    case UPDATE_SIGN_UP_ERROR:
-      return { ...state, signUpError: action.payload }
-    case UPDATE_SIGN_IN_LOADING:
-      return { ...state, signInLoading: action.payload }
-    case UPDATE_SIGN_UP_LOADING:
-      return { ...state, signUpLoading: action.payload }
-    case LOGIN:
-      return { ...state, user: action.payload }
+    case UPDATE_API_REQUEST_ERROR:
+      console.log(
+        "caiuNaAction UPDATE_API_REQUEST_ERROR",
+        action.payload
+      );
+      return { ...state, apiRequestError: action.payload };
+    case UPDATE_API_REQUEST_LOADING:
+      console.log(
+        "caiuNaAction UPDATE_API_REQUEST_LOADING",
+        action.payload
+      );
+      return { ...state, isLoading: action.payload };
+    case UPDATE_USER_SESSION:
+      console.log("caiuNaAction UPDATE_USER_SESSION", action.payload);
+      return { ...state, currentUserSession: action.payload };
     case LOGOUT:
-      return initial
+      return initial;
     default:
-      return state
+      return state;
   }
 }

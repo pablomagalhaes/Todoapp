@@ -1,68 +1,78 @@
 import { NavigationActions } from 'react-navigation'
 import AuthenticationService from '../../../services/authentication/AuthenticationService'
-import {
-  UPDATE_SIGN_IN_ERROR,
-  UPDATE_SIGN_UP_ERROR,
-  UPDATE_SIGN_IN_LOADING,
-  UPDATE_SIGN_UP_LOADING,
-  LOGOUT,
-  LOGIN
-} from './LoginTypes'
+import SessionService from "../../../services/session/SessionService";
 
-export const updateSignInError = (error = '') => ({
-    type: UPDATE_SIGN_IN_ERROR,
-    payload: error,
+import {
+  LOGOUT,
+  UPDATE_USER_SESSION,
+  UPDATE_API_REQUEST_LOADING,
+  UPDATE_API_REQUEST_ERROR
+} from "./LoginTypes";
+
+const updateApiRequestError = (apiRequestError) => ({
+  type: UPDATE_API_REQUEST_ERROR,
+  payload: apiRequestError,
 })
 
-export const updateSignUpError = (error = '') => ({
-  type: UPDATE_SIGN_UP_ERROR,
-  payload: error,
+const isLoadingApiRequest = (isLoading) => ({
+  type: UPDATE_API_REQUEST_LOADING,
+  payload: isLoading,
 })
 
 const userLogout = () => ({
   type: LOGOUT,
 })
 
-const userLogin = (user) => ({
-  type: LOGIN,
+const updateUserSession = (user) => ({
+  type: UPDATE_USER_SESSION,
   payload: user,
 })
 
-export const rememberPassword = ({ email }) => {
-  return async (dispatch) => {
-
+export const signIn = ({ email, password }) => {
+  return (dispatch) => {
+    dispatch(updateApiRequestError(null));
+    dispatch(isLoadingApiRequest(true));
+    new AuthenticationService()
+      .signIn(email, password)
+      .then(user => {
+        dispatch(updateUserSession(user));
+        dispatch(isLoadingApiRequest(false));
+        new SessionService().saveCurrentUserIdSession(user)
+      })
+      .catch(error => {
+        dispatch(isLoadingApiRequest(false));
+        dispatch(updateApiRequestError(error))
+      });
   }
 }
 
-export const signIn = ({ email, password }, onSuccessSignIn) => {
-  return async (dispatch) => {
-
-    new AuthenticationService().signIn(email, password).then((user) => {
-      dispatch(login(user))
-      onSuccessSignIn()
-    })
+export const signUp = ({ name, email, password }) => {
+  return (dispatch) => {
+    dispatch(updateApiRequestError(null));
+    dispatch(isLoadingApiRequest(true));
+    new AuthenticationService()
+      .signUp(name, email, password)
+      .then(response => {
+        const { uid, email, refreshToken} = response
+        console.log("signUp", response);
+        dispatch(isLoadingApiRequest(false));
+        dispatch(updateUserSession({ uid, email, refreshToken }));
+        new SessionService().saveCurrentUserIdSession({
+          uid,
+          email,
+          refreshToken
+        });
+      })
+      .catch(error => {
+        dispatch(isLoadingApiRequest(false));
+        dispatch(updateApiRequestError(error));
+      });
   }
 }
 
-export const signUp = ({ name, email, password, phone, bloodType }, onSuccessSignIn) => {
+export const cleanErrorAndLoading = () => {
   return async (dispatch) => {
-    new AuthenticationService().signUp(name, email, password, phone, bloodType).then((response) => {
-      const { token, contribuinte } = response
-      dispatch(login(contribuinte))
-      onSuccessSignIn()
-    })
-  }
-}
-
-export const login = (user) => {
-  return async (dispatch) => {
-
-    dispatch(userLogin(user))
-  }
-}
-
-export const logout = () => {
-  return async (dispatch) => {
-    dispatch(userLogout())
+    dispatch(isLoadingApiRequest(false));
+    dispatch(updateApiRequestError(null));
   }
 }

@@ -10,7 +10,10 @@
     "postversion": "react-native-version"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.4.0",
     "axios": "^0.18.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
+    "firebase": "^6.0.2",
     "moment": "^2.24.0",
     "react": "16.8.3",
     "react-native": "0.59.8",

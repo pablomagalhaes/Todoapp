@@ -1,66 +1,48 @@
-import axios from 'axios'
-import ApiDataSource from '../ApiDataSource'
-import DEFAULT_TIMEOUT from '../CONSTANTS'
-import AuthenticationConverter from './AuthenticationConverter'
+import ApiDataSource, { USER_SESSION_ASYNCSTORAGE_KEY }  from '../ApiDataSource'
+import * as firebase from "firebase";
+import AsyncStorage from "@react-native-community/async-storage";
 
-class AuthenticationApiDataSource extends ApiDataSource{
+class AuthenticationApiDataSource extends ApiDataSource {
 
   signIn(email, password) {
-    return new Promise(async (resolve, reject) => {
-      return axios({
-        method: "post",
-        baseURL: this.getBaseUrl(),
-        url: "/contribuinte/login",
-        timeout: DEFAULT_TIMEOUT,
-        data: {
-          'email': email,
-          'senha': password
-        }
-      }).then((response) => {
-        const { token, usuario } = response
-        const user = new AuthenticationConverter().mapperUserResponseToEntity(usuario)
-        this._saveUser(token, user)
-        resolve()
-      })
-    });
-  }
-
-  async saveUser(token, user) {
-    await AsyncStorage.setItem(ACCESS_TOKEN, token)
-    await AsyncStorage.setItem(APALA_USER, user)
-  }
-
-  getUser() {
-    return new Promise(async (resolve, reject) => {
-      const user = await AsyncStorage.getItem(APALA_USER)
-      resolve(user);
-    });
-  }
-
-  signOut() {
-     return new Promise(async (resolve, reject) => {
-      await AsyncStorage.removeItem(ACCESS_TOKEN)
-      await AsyncStorage.removeItem(APALA_USER)
-      resolve();
-    });
-  }
-
-  signUp(name, email, password, phone, bloodType) {
-    const newUser = new AuthenticationConverter().mapperNewUserRequest({ name, email, password, phone, bloodType})
     return new Promise((resolve, reject) => {
-      return axios({
-        method: "post",
-        baseURL: this.getBaseUrl(),
-        url: "/contribuinte/registrar",
-        timeout: DEFAULT_TIMEOUT,
-        data: newUser 
-      }).then((response) => {
-        resolve(response)
-      }).catch((error) => {
-        reject(error)
-      });
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((snapshot) => {
+          const { refreshToken, uid } = snapshot.user
+
+          resolve({ refreshToken, uid });
+        })
+        .catch(function (error) {
+          reject(error.message)
+        });
     })
   }
+
+  signUp(name, email, password) {
+    return new Promise((resolve, reject) => {
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((snapshot) => {
+          const { refreshToken, uid } = snapshot.user
+          var user = firebase.auth().currentUser;
+
+          this.saveNewUserData(uid, name, email, "image_url")
+
+          resolve(snapshot.user);
+        })
+        .catch(function (error) {
+          reject(error.message)
+        });
+    })
+  }
+
+  saveNewUserData(userId, name, email, profileImageUrl) {
+    firebase.database().ref('users/' + userId).set({
+      username: name,
+      email: email,
+      profile_picture: profileImageUrl
+    });
+  }
+
 }
 
 export default AuthenticationApiDataSource
