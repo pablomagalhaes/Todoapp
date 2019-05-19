@@ -1,27 +1,29 @@
-import ApiDataSource, { USER_SESSION_ASYNCSTORAGE_KEY }  from '../ApiDataSource'
+import ApiDataSource, {
+  USER_SESSION_ASYNCSTORAGE_KEY,
+  UID_ASYNCSTORAGE_KEY
+} from "../ApiDataSource";
 import * as firebase from "firebase";
 import AsyncStorage from "@react-native-community/async-storage";
 
 class SessionLocalDataSource extends ApiDataSource {
   
-  getCurrentUserSession() {
+  getCurrentUserIdSession() {
     return new Promise(async (resolve, reject) => {
-      const user = await AsyncStorage.getItem(USER_SESSION_ASYNCSTORAGE_KEY);
+      const user = await AsyncStorage.getItem(UID_ASYNCSTORAGE_KEY);
       resolve(user);
     });
   }
 
-  saveCurrentUserSession(user) {
+  saveCurrentUserIdSession(user) {
     return new Promise((resolve, reject) => {
-      AsyncStorage.setItem(USER_SESSION_ASYNCSTORAGE_KEY, user);
-      console.log('saveCurrentUserSession', user);
+      AsyncStorage.setItem(UID_ASYNCSTORAGE_KEY, user.uid);
       resolve();
     });
   }
 
-  cleanCurrentUserSession() {
+  cleanCurrentUserIdSession() {
     return new Promise((resolve, reject) => {
-      AsyncStorage.removeItem(USER_SESSION_ASYNCSTORAGE_KEY);
+      AsyncStorage.removeItem(UID_ASYNCSTORAGE_KEY);
       resolve();
     });
   }

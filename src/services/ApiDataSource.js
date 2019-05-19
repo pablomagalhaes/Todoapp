@@ -2,7 +2,7 @@ import { API_ENVIROMENTS, BASE_URLS } from "./CONSTANTS";
 import * as firebase from "firebase";
 import AsyncStorage from "@react-native-community/async-storage";
 
-export const USER_SESSION_ASYNCSTORAGE_KEY = "user_session";
+export const UID_ASYNCSTORAGE_KEY = "@uid_session";
 
 var firebaseConfig = {
   apiKey: "AIzaSyCZI1c-y3lW8WL_LTXfP5f5h31LXUc5XnA",
@@ -16,7 +16,7 @@ var firebaseConfig = {
 
 class ApiDataSource {
   constructor(apiEnviroment) {
-    this.USER_ID = AsyncStorage.getItem(USER_SESSION_ASYNCSTORAGE_KEY);
+    this.USER_ID = AsyncStorage.getItem(UID_ASYNCSTORAGE_KEY);
     this.API_ENVIROMENT = apiEnviroment;
     
     if (!firebase.apps.length) {

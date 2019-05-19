@@ -6,16 +6,16 @@ class SessionService extends ServiceDataSource {
     super(null, SessionLocalDataSource);
   }
 
-  getCurrentUserSession() {
-    return this.datasource().getCurrentUserSession();
+  getCurrentUserIdSession() {
+    return this.datasource().getCurrentUserIdSession();
   }
 
-  saveCurrentUserSession(user) {
-    return this.datasource().saveCurrentUserSession(user);
+  saveCurrentUserIdSession(user) {
+    return this.datasource().saveCurrentUserIdSession(user);
   }
 
-  cleanCurrentUserSession() {
-    return this.datasource().cleanCurrentUserSession();
+  cleanCurrentUserIdSession() {
+    return this.datasource().cleanCurrentUserIdSession();
   }
 }
 

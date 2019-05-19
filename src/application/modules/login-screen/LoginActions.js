@@ -37,7 +37,7 @@ export const signIn = ({ email, password }) => {
       .then(user => {
         dispatch(updateUserSession(user));
         dispatch(isLoadingApiRequest(false));
-        new SessionService().saveCurrentUserSession(user)
+        new SessionService().saveCurrentUserIdSession(user)
       })
       .catch(error => {
         dispatch(isLoadingApiRequest(false));
@@ -53,9 +53,15 @@ export const signUp = ({ name, email, password }) => {
     new AuthenticationService()
       .signUp(name, email, password)
       .then(response => {
+        const { uid, email, refreshToken} = response
         console.log("signUp", response);
         dispatch(isLoadingApiRequest(false));
-        // dispatch(updateUserSession(user));
+        dispatch(updateUserSession({ uid, email, refreshToken }));
+        new SessionService().saveCurrentUserIdSession({
+          uid,
+          email,
+          refreshToken
+        });
       })
       .catch(error => {
         dispatch(isLoadingApiRequest(false));

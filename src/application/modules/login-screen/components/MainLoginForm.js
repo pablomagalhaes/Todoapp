@@ -6,14 +6,12 @@ import { FormSubmitType } from '../LoginEnums';
 import SelectAccessForm from './SelectAccessForm'
 import AccountSignInForm from './AccountSignInForm'
 import AccountSignUpForm from './AccountSignUpForm'
-import RememberPasswordForm from './RememberPasswordForm'
 import * as LoginActions from '../LoginActions'
 import { withNavigation } from 'react-navigation';
 
 class MainLoginForm extends PureComponent {
 
-  componentWillReceiveProps(newProps) {
-    console.log("newProps", newProps);    
+  componentWillReceiveProps(newProps) { 
     if (newProps.currentUserSession != null) {
       this._onSubmitWithSuccess()
     }
@@ -24,7 +22,6 @@ class MainLoginForm extends PureComponent {
   }
 
   _onSubmitWithSuccess() {
-    console.log("_onSubmitWithSuccess");
     this.props.navigation.replace("HomeScreen");
   }
 
@@ -35,11 +32,6 @@ class MainLoginForm extends PureComponent {
   _onSubmitSignUpForm(newUserCredentials) {
     this.props.signUp(newUserCredentials);
   }
-
-  _onSubmitRememberPasswordForm(email) {
-    this.props.rememberPassword(email);
-  }
-
   renderCorrectFormBySubmitType(submitType) {
     const { onChangeSubmitType } = this.props;
     switch (submitType) {
@@ -62,14 +54,6 @@ class MainLoginForm extends PureComponent {
           <AccountSignUpForm
             onPressSubmitAccountSignUpForm={newUserCredentials =>
               this._onSubmitSignUpForm(newUserCredentials)
-            }
-          />
-        );
-      case FormSubmitType.REMEMBER_PASSWORD:
-        return (
-          <RememberPasswordForm
-            onPressSubmitRememberPasswordForm={email =>
-              this._onSubmitRememberPasswordForm(email)
             }
           />
         );

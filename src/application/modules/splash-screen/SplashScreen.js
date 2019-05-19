@@ -11,14 +11,13 @@ class SplashScreen extends PureComponent {
 
   componentWillReceiveProps(newProps) {
     const userIsLogged = newProps.userIsLogged
-      setTimeout(() => {
-        console.log("userIsLogged", userIsLogged);
+      setTimeout(() => {  
         if (userIsLogged) {
           this.props.navigation.replace("HomeScreen");
         } else {
           this.props.navigation.replace("LoginScreen");
         }
-      }, 1500);
+      }, 3000);
   }
 
   componentWillMount() {
