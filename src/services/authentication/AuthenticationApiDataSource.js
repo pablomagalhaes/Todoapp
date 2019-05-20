@@ -36,11 +36,21 @@ class AuthenticationApiDataSource extends ApiDataSource {
   }
 
   saveNewUserData(userId, name, email, profileImageUrl) {
-    firebase.database().ref('users/' + userId).set({
-      username: name,
-      email: email,
-      profile_picture: profileImageUrl
-    });
+    firebase
+      .database()
+      .ref("users/" + userId)
+      .set({
+        username: name,
+        email: email,
+        profile_picture: profileImageUrl,
+        toDoList: [
+          {
+            id: 321432423,
+            title: "ToDo Example",
+            isChecked: false
+          }
+        ]
+      });
   }
 
 }
