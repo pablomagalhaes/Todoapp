@@ -51,8 +51,6 @@ export const loadToDoList = () => {
 
     const toDoList = await new ToDoService().getToDoList();
 
-    console.log("toDoLIst", toDoList)
-
     dispatch(updateToDoList(toDoList));
     dispatch(isFetchingToDoList(false));
   };

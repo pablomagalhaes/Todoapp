@@ -9,7 +9,7 @@ import Colors from '../../assets/Colors'
 class HomeScreen extends PureComponent {
 
   componentWillReceiveProps(newProps) {
-    console.log("componentWillReceiveProps", newProps);
+
   }
   
   _renderItem(item) {
@@ -43,12 +43,11 @@ class HomeScreen extends PureComponent {
 }
 
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
  
- 
   },
-});
+};
 
 
 const mapStateToProps = state => ({

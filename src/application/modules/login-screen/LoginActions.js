@@ -53,10 +53,10 @@ export const signUp = ({ name, email, password }) => {
     new AuthenticationService()
       .signUp(name, email, password)
       .then(response => {
-        const { uid, email, refreshToken} = response
-        console.log("signUp", response);
+        const { uid, email, refreshToken} = responsead
+        const user = { uid, email, refreshToken }
         dispatch(isLoadingApiRequest(false));
-        dispatch(updateUserSession({ uid, email, refreshToken }));
+        dispatch(updateUserSession(user));
         new SessionService().saveCurrentUserIdSession({
           uid,
           email,

@@ -9,7 +9,6 @@ class ToDoApiDataSource extends ApiDataSource {
   async getToDoList() {
     const USER_ID = await AsyncStorage.getItem(UID_ASYNCSTORAGE_KEY);
     return new Promise((resolve, reject) => {
-      console.log("UID", USER_ID);
       firebase
         .database()
         .ref("users/" + USER_ID + "/toDoList")
@@ -17,12 +16,8 @@ class ToDoApiDataSource extends ApiDataSource {
         .then(snapshot => {
           let toDoList = [];
           if (snapshot.val()) {
-            const toDoListResponse = Object.values(snapshot.val());
-            // toDoList = new ToDoConverter().mapperResponsesToEntities(
-            toDoList = toDoListResponse
-            // );
+            toDoList = Object.values(snapshot.val());
           } 
-          console.log("response", snapshot.val());
           resolve(toDoList);
         });
     });
