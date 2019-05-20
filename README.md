@@ -76,7 +76,7 @@ PS: To run project on API build type you need define .env variables to firebase 
 
  Listing Todo's             |  Adding Todo             | Removing Todo        | Editing Todo   | Completing Todo                
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
-<img src="screenshots/mainlist.jpeg" width="180" height="320">  |    <img src="gifs/show_details.gif" width="180" height="320">  |    <img src="gifs/search.gif" width="180" height="320"> |    <img src="gifs/updating.gif" width="180" height="320"> |    <img src="gifs/updating.gif" width="180" height="320">
+<img src="screenshots/mainlist.jpeg" width="180" height="320">  |    |    |    |    
 
 
 
