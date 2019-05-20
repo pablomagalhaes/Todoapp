@@ -2,7 +2,7 @@
 
 ### Simple app with authentication and TODO on Firebase
 
-[Auth TODO App - APK DOWNLOAD](https://drive.google.com/file/d/iew?usp=sharing)
+[Auth TODO App - APK DOWNLOAD](https://drive.google.com/file/d/19EyYvxxHk0WM6C6VQvvENPSPpCI1v6FU/view?usp=sharing)
 
 ## Main features:
 - Login screen that authenticate with Facebook and Email method by Firebase
@@ -27,15 +27,42 @@
 - [axios](https://github.com/axios/axios) : To make XMLHttpRequests, Intercept request and response, Automatic transforms for JSON data, Supports the Promise API
 - [momentjs](https://momentjs.com/) : To parse, validate, manipulate, and display dates and times in JavaScript.
 
-### Tools and Build
+### Tools and Run
 
-This project was built using Android Studio 3.4. To edit this project, is recomended to use the *Import Project* from Android Studio.
-The application can also be built using command line. In a machine with Java 8 or newer installed and configured, checkout the root project and run `gradlew assembleDebug`. The resulting APK can be found in `project/app/build/outputs/apk/prod/debug/app-prod-debug.apk`.
+This project was built using Visual Studio Code. To edit this project, is recomended to use the *Open folder* from Visual Studio Code.
 
-#### Build variants
-Use the Android Studio *Build Variants* button to choose between **prodDebug** or **prodRelease** flavors to use project consuming the real api .
+To run project, you requires :
+- NodeJS
+- Yarn or NPM
+- Java 8
 
-If you wish run tests should choose **mockdebug** build variant . 
+
+In the project directory, to install dependencies you can run:
+
+- ### `yarn`
+
+After you can start the development server :
+
+- ### `yarn start`
+
+And with android device connected in another terminal session, run project with the command : 
+- ### `yarn android`
+
+
+#### Build Enviroments
+In the app two environments were developed to run the application, API and MOCK. The MOCK environment performs requests and receives responses with false but functional data for the project. The API environment performs requests and receives responses through the firebase by performing HTTP requests to the server, bringing real and dynamic data simulating a real use of the project.
+
+To set app enviroment you should change the file : (./src/services/ServiceDataSource.js)
+
+```
+  constructor(mockDatasource, apiDataSource) {
+    this.BUILD_TYPE = BUILD_TYPES.API // on BUILD_TYPES you can use MOCK or API enviroment .
+    this.mockDatasource = mockDatasource
+    this.apiDataSource = apiDataSource
+  }
+```
+
+PS: To run project on API build type you need define .env variables to firebase credentials .
 
 
 ## Screens
@@ -43,13 +70,13 @@ If you wish run tests should choose **mockdebug** build variant .
 
  Doing Email Sign In       |  Doing Facebook Sign In          | Sign Up with Email                   
 :-------------------------:|:-------------------------:|:-------------------------:|
-<img src="gifs/listing_movies.gif" width="180" height="320">  |    <img src="gifs/show_movie_details.gif" width="180" height="320">  |    <img src="gifs/search_movies.gif" width="180" height="320"> 
+<img src="gifs/listing.gif" width="180" height="320">  |    <img src="gifs/show_details.gif" width="180" height="320">  |    <img src="gifs/search.gif" width="180" height="320"> 
 
 
 
  Listing Todo's             |  Adding Todo             | Removing Todo        | Editing Todo   | Completing Todo                
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
-<img src="gifs/listing_movies.gif" width="180" height="320">  |    <img src="gifs/show_movie_details.gif" width="180" height="320">  |    <img src="gifs/search_movies.gif" width="180" height="320"> |    <img src="gifs/updating_movies.gif" width="180" height="320"> |    <img src="gifs/updating_movies.gif" width="180" height="320">
+<img src="gifs/listing.gif" width="180" height="320">  |    <img src="gifs/show_details.gif" width="180" height="320">  |    <img src="gifs/search.gif" width="180" height="320"> |    <img src="gifs/updating.gif" width="180" height="320"> |    <img src="gifs/updating.gif" width="180" height="320">
 
 
 
