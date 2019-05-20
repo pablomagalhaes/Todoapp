@@ -70,13 +70,13 @@ PS: To run project on API build type you need define .env variables to firebase 
 
  Doing Email Sign In       |  Doing Facebook Sign In          | Sign Up with Email                   
 :-------------------------:|:-------------------------:|:-------------------------:|
-<img src="gifs/listing.gif" width="180" height="320">  |    <img src="gifs/show_details.gif" width="180" height="320">  |    <img src="gifs/search.gif" width="180" height="320"> 
+<img src="screenshots/signin.jpeg" width="180" height="320">  |    <img src="screenshots/facebook.jpeg" width="180" height="320">  |    <img src="screenshots/signup.jpeg" width="180" height="320"> 
 
 
 
  Listing Todo's             |  Adding Todo             | Removing Todo        | Editing Todo   | Completing Todo                
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
-<img src="gifs/listing.gif" width="180" height="320">  |    <img src="gifs/show_details.gif" width="180" height="320">  |    <img src="gifs/search.gif" width="180" height="320"> |    <img src="gifs/updating.gif" width="180" height="320"> |    <img src="gifs/updating.gif" width="180" height="320">
+<img src="screenshots/mainlist.jpeg" width="180" height="320">  |    <img src="gifs/show_details.gif" width="180" height="320">  |    <img src="gifs/search.gif" width="180" height="320"> |    <img src="gifs/updating.gif" width="180" height="320"> |    <img src="gifs/updating.gif" width="180" height="320">
 
 
 
