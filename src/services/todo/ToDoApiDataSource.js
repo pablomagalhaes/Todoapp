@@ -83,8 +83,6 @@ class ToDoApiDataSource extends ApiDataSource {
     });
   }
 
-  async getUserId() {
-  }
 }
 
 export default ToDoApiDataSource;
