@@ -57,9 +57,6 @@ class MainLoginForm extends PureComponent {
             }
           />
         );
-      case FormSubmitType.FACEBOOK:
-        this.onSubmitFacebookSignIn();
-        return <SelectAccessForm onPressAccessMethod={onChangeSubmitType} />;
       default:
         break;
     }

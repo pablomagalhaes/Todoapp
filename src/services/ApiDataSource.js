@@ -4,14 +4,15 @@ import * as firebase from "firebase";
 export const UID_ASYNCSTORAGE_KEY = "@uid_session";
 
 var firebaseConfig = {
-  apiKey: "AIzaSyCZI1c-y3lW8WL_LTXfP5f5h31LXUc5XnA",
-  authDomain: "authtodoapp.firebaseapp.com",
-  databaseURL: "https://authtodoapp.firebaseio.com",
-  projectId: "authtodoapp",
-  storageBucket: "authtodoapp.appspot.com",
-  messagingSenderId: "66408663074",
-  appId: "1:66408663074:web:74413413e68bb344"
+  apiKey: "AIzaSyD1iPysnO2dHHpTEnFBJsl_Q0xNCS5DIe0",
+  authDomain: "todoapp-1e31a.firebaseapp.com",
+  databaseURL: "https://todoapp-1e31a.firebaseio.com",
+  projectId: "todoapp-1e31a",
+  storageBucket: "",
+  messagingSenderId: "970216455352",
+  appId: "1:970216455352:web:4228c83f022503e2"
 };
+
 
 class ApiDataSource {
   constructor(apiEnviroment) {

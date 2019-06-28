@@ -1,6 +1,7 @@
 'use strict'
 import React, { PureComponent } from 'react'
-import { View, ScrollView, Image, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Alert } from 'react-native'
+
+import { View, ScrollView, Image, Text, StyleSheet,  TextInput, TouchableOpacity, KeyboardAvoidingView, Alert } from 'react-native'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as LoginActions from './LoginActions'
@@ -12,7 +13,24 @@ import { FormSubmitType } from './LoginEnums';
 import MainLoginForm from './components/MainLoginForm'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
-
+const styles = StyleSheet.create({
+    smallWhite: {
+    color: 'white',
+    fontWeight: '200',
+    fontSize: 20,
+    alignSelf: "center"
+  },
+  bigWhite: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 30,
+    alignSelf: "center",
+    marginTop: 10
+  },
+  red: {
+    color: 'red',
+  },
+});
 class LoginScreen extends PureComponent {
 
   constructor(props) {
@@ -48,23 +66,29 @@ class LoginScreen extends PureComponent {
       <View style={{ flex: 1 }}>
         <View style={{ flex: 1, backgroundColor: Colors.main_blue }}>
           <View
-            style={{ paddingLeft: 30, paddingRight: 30, paddingTop: 20 }}
+            style={{ paddingLeft: 30, paddingRight: 30, paddingTop: 50, marginTop: 30 }}
           >
             {this.showBackIcon(currentSubmitType)}
           </View>
 
           <Image
             style={{
-              width: 200,
-              height: 200,
+              width: 100,
+              height: 100,
               alignSelf: "center",
               resizeMode: "stretch"
             }}
             source={mainLogo}
           />
+
+        <View>
+          <Text style={styles.bigWhite}>Todo App</Text>
+          <Text style={styles.smallWhite}>Thiago Magalhães</Text>
+        </View>
+          
         </View>
 
-        <MainLoginForm
+        <MainLoginForm style={{ marginTop: 30 }}
           submitType={currentSubmitType}
           onChangeSubmitType={newSubmitType =>
             this.updateSubmitType(newSubmitType)

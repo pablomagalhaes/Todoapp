@@ -1,1 +1,1 @@
-export const mainLogo = require('./imgs/main-logo.jpg')
+export const mainLogo = require('./imgs/todologo.png')

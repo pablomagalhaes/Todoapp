@@ -20,7 +20,7 @@ class SelectAccessForm extends PureComponent {
         <View style={{ flexDirection: "row" }}>
           <Button
             style={{ flex: 1 }}
-            text={"Entrar com o Email"}
+            text={"Entrar com o E-mail"}
             onPress={() => onPressAccessMethod(FormSubmitType.SIGNIN)}
             textColor={Colors.main_blue}
           />
@@ -60,15 +60,7 @@ class SelectAccessForm extends PureComponent {
           />
         </View>
 
-        <View style={{ flexDirection: "row" }}>
-          <Button
-            style={{ flex: 1 }}
-            text={"Entrar com o Facebook"}
-            textColor={Colors.white}
-            bgColor={Colors.blue_facebook}
-            onPress={() => onPressAccessMethod(FormSubmitType.FACEBOOK)}
-          />
-        </View>
+      
 
         <View
           style={{
@@ -86,7 +78,7 @@ class SelectAccessForm extends PureComponent {
             Não tem conta ?
           </Text>
           <Button
-            text={"Cadastrar"}
+            text={"Cadastre-se"}
             style={{ padding: 7 }}
             textStyle={{ fontSize: 13 }}
             onPress={() => onPressAccessMethod(FormSubmitType.SIGNUP)}

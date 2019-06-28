@@ -6,7 +6,7 @@ import Colors from "../assets/Colors";
 
 const MainTopBar = ({ state, navigation }) => {
   return {
-    title: "Auth TODO App",
+    title: "TodoApp",
     headerRight: (
       <TouchableOpacity
         onPress={() => navigation.navigate("LoginScreen")}

@@ -1,8 +1,5 @@
-# Authentication and TODO - React Native App
+# TODO APP - React Native App
 
-### Simple app with authentication and TODO on Firebase
-
-[Auth TODO App - APK DOWNLOAD](https://drive.google.com/file/d/19EyYvxxHk0WM6C6VQvvENPSPpCI1v6FU/view?usp=sharing)
 
 ## Main features:
 - Login screen that authenticate with Facebook and Email method by Firebase
@@ -45,9 +42,6 @@ After you can start the development server :
 
 - ### `yarn start`
 
-And with android device connected in another terminal session, run project with the command : 
-- ### `yarn android`
-
 
 #### Build Enviroments
 In the app two environments were developed to run the application, API and MOCK. The MOCK environment performs requests and receives responses with false but functional data for the project. The API environment performs requests and receives responses through the firebase by performing HTTP requests to the server, bringing real and dynamic data simulating a real use of the project.
@@ -63,21 +57,3 @@ To set app enviroment you should change the file : (./src/services/ServiceDataSo
 ```
 
 PS: To run project on API build type you need define .env variables to firebase credentials .
-
-
-## Screens
-
-
- Doing Email Sign In       |  Doing Facebook Sign In          | Sign Up with Email                   
-:-------------------------:|:-------------------------:|:-------------------------:|
-<img src="screenshots/signin.jpeg" width="180" height="320">  |    <img src="screenshots/facebook.jpeg" width="180" height="320">  |    <img src="screenshots/signup.jpeg" width="180" height="320"> 
-
-
-
- Listing Todo's             |  Adding Todo             | Removing Todo        | Editing Todo   | Completing Todo                
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
-<img src="screenshots/mainlist.jpeg" width="180" height="320">  |    |    |    |    
-
-
-
-© Denis Vieira Rufino
